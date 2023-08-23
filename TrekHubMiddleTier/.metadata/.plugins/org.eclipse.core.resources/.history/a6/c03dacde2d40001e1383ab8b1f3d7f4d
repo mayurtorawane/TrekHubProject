@@ -1,0 +1,26 @@
+package com.example.demo.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.entities.TrekBooking;
+import com.example.demo.services.TrekBookingService;
+
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+public class TrekBookingController {
+
+	@Autowired
+	TrekBookingService tservices;
+	
+	@PostMapping("/trekbook")
+	public TrekBooking booking(@RequestBody TrekBooking tb)
+	{
+		TrekBooking trekbook=new TrekBooking(tb.getBooking_date(), tb.getUser_id(), tb.getPlantrek(), tb.getMembers(), tb.getAmount());
+		
+		return tservices.save(trekbook);
+	}
+}

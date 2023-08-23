@@ -1,0 +1,115 @@
+package com.example.demo.entities;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="trekbooking")
+public class TrekBooking {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int booking_id;
+	
+	@Column
+	Date booking_date;
+	
+	@OneToOne
+	@JoinColumn(name="trekker_id")
+	User trekker_id;
+	
+	@OneToOne
+	@JoinColumn(name="plantrek_id")
+    PlanTrek plantrek_id;
+	
+	@Column
+	int members;
+	
+	@Column
+	double amount;
+	
+	
+
+	public TrekBooking(Date booking_date, User trekker_id, PlanTrek planttrek_id, int members, double amount) {
+		super();
+		this.booking_date = booking_date;
+		this.trekker_id = trekker_id;
+		this.planttrek_id = planttrek_id;
+		this.members = members;
+		this.amount = amount;
+	}
+
+	public TrekBooking() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getBooking_id() {
+		return booking_id;
+	}
+
+	public void setBooking_id(int booking_id) {
+		this.booking_id = booking_id;
+	}
+
+	public Date getBooking_date() {
+		return booking_date;
+	}
+
+	public void setBooking_date(Date booking_date) {
+		this.booking_date = booking_date;
+	}
+
+	public User getTrekker_id() {
+		return trekker_id;
+	}
+
+	public void setTrekker_id(User trekker_id) {
+		this.trekker_id = trekker_id;
+	}
+
+	public PlanTrek getPlanttrek_id() {
+		return planttrek_id;
+	}
+
+	public void setPlanttrek_id(PlanTrek planttrek_id) {
+		this.planttrek_id = planttrek_id;
+	}
+
+	public int getMembers() {
+		return members;
+	}
+
+	public void setMembers(int members) {
+		this.members = members;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	
+	
+
+	
+	
+
+	
+
+	
+	
+	
+	
+}
