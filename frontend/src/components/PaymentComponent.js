@@ -30,7 +30,7 @@ export default function PaymentComponent()
     },[])
 
     const  sendData=()=>{
-        alert("hiii")
+        
         
             const reqOption ={
               method : 'POST',
@@ -47,7 +47,7 @@ export default function PaymentComponent()
             fetch("http://localhost:8080/payment",reqOption)
             .then(resp=>{
              // console.log("In Edit Method");
-             alert("bye")
+             
               console.log(resp);
              // alert(resp);
               if(resp.ok)
