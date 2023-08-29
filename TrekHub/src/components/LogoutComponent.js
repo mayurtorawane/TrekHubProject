@@ -6,8 +6,9 @@ export default function LogoutComponent()
     const navigate=useNavigate();
     
     useEffect(() => {
-         
-      //  localStorage.clear()
+     
+        
+       localStorage.clear()
         navigate("/");
         },[]);
 }

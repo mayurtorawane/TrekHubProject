@@ -17,7 +17,7 @@ public class User
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int user_id;
 	@Column
-	String fname,lname,email,contact,adharno,gender,addressline,city;
+	String fname,lname,email,contact,adharno,gender,addressline;
 	@Column
 	int pincode;
 	
@@ -32,7 +32,7 @@ public class User
 	}
 
 	public User(String fname, String lname, String email, String contact, String adharno, String gender,
-			String addressline, String city,int pincode,Login login_id) 
+			String addressline, int pincode,Login login_id) 
 	{
 		super();
 		this.fname = fname;
@@ -42,7 +42,7 @@ public class User
 		this.adharno = adharno;
 		this.gender = gender;
 		this.addressline = addressline;
-		this.city = city;
+		
 		this.pincode = pincode;
 		this.login_id = login_id;
 	}
@@ -112,13 +112,7 @@ public class User
 		this.addressline = addressline;
 	}
 
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
+	
 
 	public int getPincode() {
 		return pincode;
@@ -139,9 +133,10 @@ public class User
 	@Override
 	public String toString() {
 		return "User [user_id=" + user_id + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", contact="
-				+ contact + ", adharno=" + adharno + ", gender=" + gender + ", addressline=" + addressline + ", city="
-				+ city + ", pincode=" + pincode
-				+ ", login_id=" + login_id + "]";
+				+ contact + ", adharno=" + adharno + ", gender=" + gender + ", addressline=" + addressline
+				+ ", pincode=" + pincode + ", login_id=" + login_id + "]";
 	}
+
+	
 
 }

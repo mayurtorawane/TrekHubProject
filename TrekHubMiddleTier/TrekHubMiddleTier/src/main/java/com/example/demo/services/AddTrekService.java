@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -51,4 +52,9 @@ public class AddTrekService
 	    }
 
 	
+	 public List<AddTrek> geAllPackages() {
+			
+			
+			return addtrekrepo.findAll();
+		}
 }

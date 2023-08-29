@@ -1,6 +1,11 @@
 package com.example.demo.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +18,7 @@ import com.example.demo.services.AddTrekService;
 import com.example.demo.services.PlanTrekService;
 import com.example.demo.services.UserRegService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class PlanTrekController
 {
@@ -38,7 +44,7 @@ public class PlanTrekController
 		
 		AddTrek adk=addtrekserv.getTrekInfo(trekdummy.getTrek_id());
 		
-		PlanTrek plantrek=new PlanTrek(trekdummy.getStart_date(),trekdummy.getEnd_date(),trekdummy.getPrice(),
+		PlanTrek plantrek=new PlanTrek(trekdummy.getStart_date(),trekdummy.getPrice(),
 				trekdummy.getAvail_seats(),trekdummy.getLast_date_apply(),adk,user,trekdummy.getStatus());
 		
 		System.out.println("*********"+adk+"**************");
@@ -50,5 +56,26 @@ public class PlanTrekController
 		return demo;
 		
 	}
+	
+	
+	
+//	@GetMapping("/treksforguide/{guideId}")
+//	public List<AddTrek> getTreksForGuide(@PathVariable int guideId) {
+//	    return uregservice.getTrekIdsForGuide(guideId);
+//	}
+	
+	
+	@GetMapping("/plantreks/{userId}")
+    public List<PlanTrek> getPlanTreksByUserId(@PathVariable int userId) {
+        return plantrekserv.getAllPlanTreksByUserId(userId);
+    }
+	
+	
+	@GetMapping("/getallPlanTrek")
+	public List<PlanTrek> getAllPlanTrek()
+	{
+		return plantrekserv.getAllplantrek();
+	}
+
 }
 

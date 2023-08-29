@@ -3,7 +3,7 @@ package com.example.demo.entities;
 public class UserReg 
 {
 	int user_id,roleid;
-	String uid,pwd,fname,lname,email,contact,adharno,gender,addressline,city;
+	String uid,pwd,fname,lname,email,contact,adharno,gender,addressline;
 	int pincode;
 	
 	public UserReg() 
@@ -15,7 +15,7 @@ public class UserReg
 	
 
 	public UserReg(int user_id, String uid, String pwd, String fname, String lname, String email, String contact,
-			String adharno, String gender, String addressline, String city,int pincode) {
+			String adharno, String gender, String addressline, int pincode) {
 		super();
 		this.user_id = user_id;
 		this.uid = uid;
@@ -27,7 +27,7 @@ public class UserReg
 		this.adharno = adharno;
 		this.gender = gender;
 		this.addressline = addressline;
-		this.city = city;
+	
 		this.pincode = pincode;
 	}
 
@@ -121,13 +121,7 @@ public class UserReg
 		this.addressline = addressline;
 	}
 
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
+	
 
 	public int getPincode() {
 		return pincode;
@@ -137,13 +131,16 @@ public class UserReg
 		this.pincode = pincode;
 	}
 
+
+
 	@Override
-	public String toString() 
-	{
-		return "UserReg [user_id=" + user_id + ", uid=" + uid + ", pwd=" + pwd + ", fname=" + fname + ", lname=" + lname
-				+ ", email=" + email + ", contact=" + contact + ", adharno=" + adharno + ", gender=" + gender
-				+ ", addressline=" + addressline + ", city=" + city + ", pincode=" + pincode + "]";
+	public String toString() {
+		return "UserReg [user_id=" + user_id + ", roleid=" + roleid + ", uid=" + uid + ", pwd=" + pwd + ", fname="
+				+ fname + ", lname=" + lname + ", email=" + email + ", contact=" + contact + ", adharno=" + adharno
+				+ ", gender=" + gender + ", addressline=" + addressline + ", pincode=" + pincode + "]";
 	}
+
+	
 
 	
 	

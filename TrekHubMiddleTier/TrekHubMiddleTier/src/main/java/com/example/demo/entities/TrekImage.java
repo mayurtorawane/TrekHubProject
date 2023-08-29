@@ -84,11 +84,7 @@ public class TrekImage
 		this.trekobj = trekobj;
 	}
 
-	@Override
-	public String toString() {
-		return "TrekImage [trek_image_id=" + trek_image_id + ", trek_image=" + Arrays.toString(trek_image)
-				+ ", trekobj=" + trekobj + "]";
-	}
+	
 	
 	
 	

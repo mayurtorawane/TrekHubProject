@@ -130,12 +130,7 @@ public class AddTrek
 		this.plantrekobj = plantrekobj;
 	}
 
-	@Override
-	public String toString() {
-		return "AddTrek [trek_id=" + trek_id + ", trek_name=" + trek_name + ", duration=" + duration + ", capacity="
-				+ capacity + ", description=" + description + ", location=" + location + ", level=" + level
-				+ ", trekimageobj=" + trekimageobj + ", plantrekobj=" + plantrekobj + "]";
-	}
+
 	
 	
 

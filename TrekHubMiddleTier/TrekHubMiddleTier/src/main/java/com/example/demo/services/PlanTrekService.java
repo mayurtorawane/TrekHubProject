@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,14 @@ public class PlanTrekService
 		return plantrekrepo.getPlantrekbyid(pid);
 	}
 	
+	public List<PlanTrek> getAllPlanTreksByUserId(int userId) {
+        return plantrekrepo.findByUserId(userId);
+    }
 	
-
+	
+	public List<PlanTrek> getAllplantrek()
+	{
+		return plantrekrepo.findAll();
+	}
+	
 }

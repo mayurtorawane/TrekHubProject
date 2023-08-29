@@ -16,8 +16,7 @@ export default function BookTrekComponent()
    //console.log(plantrekingo)
    const user_id = localStorage.getItem("user_id");
      
-  //  const user_id=userinfo.uid;
-  //  const li=userinfo.login_id;
+  
    const [trek, setTrek] = useState(null);
    const [error, setError] = useState(null);
    console.log(trek)

@@ -56,7 +56,6 @@ export default function GuideProfileComponent() {
             <th>Email</th>
             <th>Contact</th>
             <th>AdharNo</th>
-            <th>City</th>
           </tr>
         </thead>
         <tbody>
@@ -66,7 +65,6 @@ export default function GuideProfileComponent() {
             <td>{trek.email}</td>
             <td>{trek.contact}</td>
             <td>{trek.adharno}</td>
-            <td>{trek.city}</td>
           </tr>
         </tbody>
       </table>

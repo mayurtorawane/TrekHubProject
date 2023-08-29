@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entities.AddTrek;
 import com.example.demo.entities.Login;
 import com.example.demo.entities.Role;
 import com.example.demo.entities.User;
@@ -39,7 +41,7 @@ public class UserRegController {
 		
 		Login lsaved=lservice.save(l);
 		
-		User u=new User(ureg.getFname(),ureg.getLname(),ureg.getEmail(),ureg.getContact(),ureg.getAdharno(),ureg.getGender(),ureg.getAddressline(),ureg.getCity(),ureg.getPincode(),lsaved);
+		User u=new User(ureg.getFname(),ureg.getLname(),ureg.getEmail(),ureg.getContact(),ureg.getAdharno(),ureg.getGender(),ureg.getAddressline(),ureg.getPincode(),lsaved);
 	
 		return uservice.saveUser(u);
 		
@@ -51,6 +53,37 @@ public class UserRegController {
         return uservice.getUsersByRoleId(guideRoleId);
     }
 	
+	@GetMapping("/guideid")
+    public List<Login> getUserWithGuideId() {
+        return uservice.getUsersByRoleId1();
+    }
+	
+
+	
+	@GetMapping("/trekids")
+	public List<AddTrek> getUserWithGuideIds()
+	{
+		return uservice.getTrekIds();
+	}
+	
+	
+	@GetMapping("/userid/{loginId}")
+    public Integer getUserIdByLoginId(@PathVariable String loginId) {
+        return uservice.getUserIdByLoginId(loginId);
+    }
+	
+	
+	
+	@GetMapping("profile/{userid}")
+	public List<User>getUserIdByLoginid1(@PathVariable int userid)
+	{
+		return uservice.getUserBYId(userid);
+	}
+	
+	@PostMapping("/updateprofile/{userId}")
+    public User updateProfile(@PathVariable int userId, @RequestBody UserReg updatedUser) {
+        return uservice.updateUser(userId, updatedUser);
+    }
 	
 
 }

@@ -11,8 +11,10 @@ export default function PaymentComponent()
      const [transactionId, setTransactionId] = useState("");
      const navigate = useNavigate();
      const [trekkerId, setTrekkerId] = useState("");
-     const t_id = localStorage.getItem('loginid');
 
+
+     const t_id = localStorage.getItem('loginid');
+    console.log('loginid');
 
 
      const  plantrekingo=JSON.parse(localStorage.getItem('onepack'))
@@ -29,9 +31,7 @@ export default function PaymentComponent()
         
     },[])
 
-    const  sendData=()=>{
-        alert("hiii")
-        
+    const  sendData=()=>{ 
             const reqOption ={
               method : 'POST',
               headers :{'content-type':'application/json'},
@@ -46,12 +46,12 @@ export default function PaymentComponent()
             }
             fetch("http://localhost:8080/payment",reqOption)
             .then(resp=>{
-             // console.log("In Edit Method");
-             alert("bye")
+           
               console.log(resp);
-             // alert(resp);
+            
               if(resp.ok)
               { 
+                alert("Payment Successful")
                 return resp.text();
             }  
              else
